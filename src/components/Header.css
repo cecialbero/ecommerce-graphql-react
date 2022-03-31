@@ -6,12 +6,12 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--red-light);
+    background-color: var(--secondary-brand);
     padding: 20px;
 }
 
 header img {
-    max-width: 220px;
+    max-width: 120px;
 }
 
 .order-container p {

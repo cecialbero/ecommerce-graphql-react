@@ -19,8 +19,8 @@ export const Header = () => {
   return (
     <header>
       <img
-        src="https://santex.wpengine.com/wp-content/uploads/2019/02/logo-santex@3x.png"
-        alt="logo"
+        src='./img/e-commerce.png'
+        alt='e-commerce'
       />
       <div className='order-container'>
         <p>My cart</p>
