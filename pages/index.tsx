@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import { useQuery } from '@apollo/client';
 import { PRODUCTS } from '../graphql/queries';
-import { Header, ProductList } from '../components';
+import { NavBar, ProductList } from '../components';
 import { Container } from '../styles/Grid';
 import { Loading } from '../styles/Loading';
 import { Alert } from '../styles/Alert';
@@ -11,7 +11,7 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <Header></Header>
+      <NavBar />
       <Container>
         {loading
           ? <Loading>Loading data...</Loading>
