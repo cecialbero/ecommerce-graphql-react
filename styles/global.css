@@ -1,8 +1,9 @@
 :root {
-  --primary-brand: #16bcdc;
+  --primary-brand: #fcc901;
   --primary-brand-dark: #0695b1;
-  --secondary-brand: #f28530;
-  --bg-light: #f7f7f7;
+  --secondary-brand: #0a1f43;
+  --tertiary-brand: #eb423f;
+  --bg-light: #f1f4f9;
   --bg-error: #f9dbd8;
   --red-light: #f44336;
   --text-color: #212529;
@@ -30,36 +31,19 @@ p {
 }
 
 h1 {
+  color: var(--text-color-invert);
+  font-size: 30px;
+  font-weight: 600;
+}
+
+h2 {
   font-size: 26px;
   border-bottom: 3px solid var(--primary-brand);
   display: inline-block;
   margin-bottom: 50px;
 }
 
-h2 {
+h3 {
   font-size: 20px;
   margin-bottom: 5px;
-}
-
-header.header {
-    position: fixed;
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 3;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--secondary-brand);
-    padding: 20px;
-}
-
-header.header img {
-    max-width: 120px;
-}
-
-.order-container p {
-    color: var(--text-color-invert);
-    font-size: 18px;
-    font-weight: 700;
-    margin: 5px 0;
 }
