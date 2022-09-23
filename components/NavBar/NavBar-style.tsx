@@ -9,7 +9,11 @@ export const Header = styled.header`
     justify-content: space-between;
     align-items: center;
     background-color: var(--secondary-brand);
-    padding: 2px 40px 5px;
+    padding: 0px 20px 3px;
+
+    @media (min-width: 567px) {
+        padding: 2px 40px 5px;
+    }
 `
 
 export const HeaderLogo = styled.div`
@@ -25,17 +29,28 @@ export const HeaderLogo = styled.div`
 export const HeaderOrder = styled.div`
     display: flex;
     align-items: center;
+    flex-direction: column;
+
+    @media (min-width: 567px) {
+        flex-direction: row;
+    }
 
     p {
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 700;
-        margin: 5px 0;
+        margin: 0;
         color: var(--text-color-invert);
+
+        @media (min-width: 567px) {
+            font-size: 18px;
+        }
     }
 `
 
 export const Cart = styled.span`
-    margin-right: 20px;
+    @media (min-width: 567px) {
+        margin-right: 20px;
+    }
 `
 
 
