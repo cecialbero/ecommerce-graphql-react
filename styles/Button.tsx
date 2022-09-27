@@ -8,10 +8,10 @@ export const Button = styled.button`
     color: #fff;
     font-size: 13px;
     padding: 7px 20px;
-    border-radius: 4px;
+    border-radius: 20px;
     transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
 
     &:hover {
-        background: var(--primary-brand-dark);
+        background: var(--secondary-brand);
     }
 `

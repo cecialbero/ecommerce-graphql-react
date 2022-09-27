@@ -10,6 +10,6 @@ export const Container = styled.div`
 
 export const Col = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     grid-gap: 40px;
 `
