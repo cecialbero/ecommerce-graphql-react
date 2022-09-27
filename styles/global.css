@@ -1,7 +1,7 @@
 :root {
   --primary-brand: #fcc901;
-  --primary-brand-dark: #0695b1;
   --secondary-brand: #0a1f43;
+  --secondary-brand-light: #0695b1;
   --tertiary-brand: #eb423f;
   --bg-light: #f1f4f9;
   --bg-error: #f9dbd8;
@@ -30,6 +30,7 @@ p {
   font-size: 14px;
 }
 
+/* Header logo */
 h1 {
   color: var(--text-color-invert);
   font-size: 26px;
@@ -40,6 +41,7 @@ h1 {
   }
 }
 
+/* Page title */
 h2 {
   font-size: 26px;
   border-bottom: 3px solid var(--primary-brand);
@@ -47,7 +49,13 @@ h2 {
   margin-bottom: 50px;
 }
 
+/* Card name */
 h3 {
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 5px;
+}
+
+/* Card price */
+h4 {
+  font-size: 16px;
 }
