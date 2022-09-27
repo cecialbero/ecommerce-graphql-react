@@ -23,10 +23,6 @@ export const CardTitle = styled.h3`
     padding: 0 15px;
 `
 
-export const CardDescription = styled.p`
-    padding: 0 15px;
-`
-
 export const CardPrice = styled.h4``
 
 export const CardMedia = styled.div<Props>`
