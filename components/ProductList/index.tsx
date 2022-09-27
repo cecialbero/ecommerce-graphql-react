@@ -9,6 +9,8 @@ interface Props {
 const ProductList = ({products}: Props): JSX.Element => {
   const {items} = products;
 
+  console.log(items);
+
   return (
     <>
       <h2>Hot Trending Products</h2>
