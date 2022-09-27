@@ -6,7 +6,7 @@ import '../styles/global.css';
 
 
 const client = new ApolloClient({
-  uri: 'https://shrouded-wave-86340.herokuapp.com/shop-api',
+  uri: 'http://localhost:3000/shop-api',
   cache: new InMemoryCache(),
 });
 
