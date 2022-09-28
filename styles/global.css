@@ -1,8 +1,8 @@
 :root {
-  --primary-brand: #fcc901;
-  --secondary-brand: #0a1f43;
-  --secondary-brand-light: #0695b1;
-  --tertiary-brand: #eb423f;
+  --brand-color: #fcc901;
+  --secondary-color: #0a1f43;
+  --secondary-color-light: #0695b1;
+  --tertiary-color: #eb423f;
   --bg-light: #f1f4f9;
   --bg-error: #f9dbd8;
   --red-light: #f44336;
@@ -26,6 +26,7 @@ code {
     monospace;
 }
 
+/*** TEXT ***/
 p {
   font-size: 14px;
 }
@@ -44,7 +45,7 @@ h1 {
 /* Page title */
 h2 {
   font-size: 26px;
-  border-bottom: 3px solid var(--primary-brand);
+  border-bottom: 3px solid var(--brand-color);
   display: inline-block;
   margin-bottom: 50px;
 }

@@ -8,7 +8,7 @@ export const Header = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--secondary-brand);
+    background-color: var(--secondary-color);
     padding: 0px 20px 3px;
 
     @media (min-width: 567px) {
@@ -59,7 +59,7 @@ export const Circle = styled.span`
     min-width: 14px;
     height: 14px;
     padding: 3px;
-    background: var(--primary-brand);
+    background: var(--brand-color);
     border-radius: 12px;
     font-weight: bold;
     font-size: 14px;

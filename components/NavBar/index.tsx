@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/client';
 
 import { ACTIVE_ORDER } from '../../graphql/queries';
 
+import { Search } from '../index';
 import { Alert } from '../../styles/Alert';
 import { Header, HeaderLogo, HeaderOrder, Cart, Circle } from './NavBar-style';
 // import useStateWithStorage from '../../hooks/useStateWithStorage';
@@ -30,6 +31,9 @@ const NavBar = () => {
         />
         <h1>ShoppApp</h1>
       </HeaderLogo>
+
+      <Search />
+      
       <HeaderOrder>
         <Cart>
           <Image

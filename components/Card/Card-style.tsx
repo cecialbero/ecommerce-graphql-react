@@ -19,7 +19,7 @@ export const CardProduct = styled.article`
 `
 
 export const CardTitle = styled.h3`
-    color: var(--secondary-brand-light);
+    color: var(--secondary-color-light);
     padding: 0 15px;
 `
 

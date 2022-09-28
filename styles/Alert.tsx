@@ -14,9 +14,7 @@ export const Alert = styled.div<Props>`
     font-weight: 700;
     border-radius: 5px;
 
-    ${props =>
-    props.error &&
-    css`
+    ${props => props.error && css`
         background: var(--bg-error);
         color: var(--red-light);
         border: 2px solid var(--red-light);
