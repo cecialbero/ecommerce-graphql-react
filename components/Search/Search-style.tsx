@@ -1,7 +1,17 @@
 import styled from 'styled-components';
 
 export const SearchWrapper = styled.div`
-    position: relative;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @media(min-width: 767px) {
+        position: relative;
+        bottom: inherit;
+        left: inherit;
+        transform: translateX(0);
+    }
 `
 
 export const SearchButton = styled.button`
