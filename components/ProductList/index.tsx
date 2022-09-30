@@ -16,7 +16,7 @@ const ProductList = ({products, filterTerm}: Props): JSX.Element => {
   return (
     <>
       <h2>Hot Trending Products</h2>
-      <Row md={2} sm={3}>
+      <Row md={2} sm={3} lg={4}>
         {filteredItems.length 
           ? filteredItems.map((item) => {
             return (
