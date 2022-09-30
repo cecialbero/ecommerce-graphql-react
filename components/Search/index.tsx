@@ -3,10 +3,20 @@ import React, { useState } from 'react';
 import { Input } from '../../styles/Form';
 import { SearchWrapper, SearchButton } from './Search-style';
 
-const Search = () => {
-    const [valueEntered, setValueEntered] = useState<string>('');
-    const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setValueEntered(event.target.value);
+type SearchProps = {
+    onSearch: any
+}
+
+const Search = ({onSearch}: SearchProps) => {
+    const [searchTerm, setSearchTerm] = useState<string>('');
+    const handleOnChange = ({target}: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchTerm(target.value);
+    }
+
+    const handleOnSearch = (e: any) => {
+        if (e.keyCode === 13 || e.type === 'click') {
+            onSearch(searchTerm);
+        }
     }
 
     return (
@@ -14,10 +24,10 @@ const Search = () => {
             <Input
                 type='search'
                 placeholder='Search'
-                name='search'
                 onChange={handleOnChange}
+                onKeyDown={handleOnSearch}
             />
-            <SearchButton>
+            <SearchButton onClick={handleOnSearch}>
                 <span className="material-symbols-outlined">
                     search
                 </span>

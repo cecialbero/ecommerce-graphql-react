@@ -9,10 +9,18 @@ import { Alert } from '../../styles/Alert';
 import { Header, HeaderLogo, HeaderOrder, Cart, Circle } from './NavBar-style';
 // import useStateWithStorage from '../../hooks/useStateWithStorage';
 
-const NavBar = () => {
+type NavBarProps = {
+  onSearch: Function
+}
+
+const NavBar = ({ onSearch }: NavBarProps) => {
   const [order, setOrder] = useState(0);
   const [itemNumber, setItemNumber] = useState(0);
   const {loading, error, data} = useQuery(ACTIVE_ORDER);
+
+  const getSearchTerm = (term: string) => {
+    onSearch(term)
+  }
 
   useEffect(() => {
     if(data) {
@@ -29,10 +37,10 @@ const NavBar = () => {
           width={50}
           height={57}
         />
-        <h1>ShoppApp</h1>
+        <h1>ShopApp</h1>
       </HeaderLogo>
 
-      <Search />
+      <Search onSearch={getSearchTerm}/>
       
       <HeaderOrder>
         <Cart>
