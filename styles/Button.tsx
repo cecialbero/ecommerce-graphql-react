@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Button = styled.button`
-    background-color: var(--primary-brand);
+    background-color: var(--brand-color);
     border-color: transparent;
     text-transform: uppercase;
     cursor: pointer;
@@ -12,6 +12,6 @@ export const Button = styled.button`
     transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
 
     &:hover {
-        background: var(--secondary-brand);
+        background: var(--secondary-color);
     }
 `
