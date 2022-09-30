@@ -1,11 +1,11 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Button = styled.button`
     background-color: var(--brand-color);
     border-color: transparent;
     text-transform: uppercase;
     cursor: pointer;
-    color: #fff;
+    color: var(--text-color);
     font-size: 13px;
     padding: 7px 20px;
     border-radius: 20px;
@@ -13,5 +13,6 @@ export const Button = styled.button`
 
     &:hover {
         background: var(--secondary-color);
+        color: var(--text-color-invert);
     }
 `
