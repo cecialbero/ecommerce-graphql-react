@@ -1,6 +1,6 @@
 import { Card } from "../";
 import { Products } from '../../model';
-import { Col } from '../../styles/Grid';
+import { Row } from '../../styles/Grid';
 import { Alert } from '../../styles/Alert';
 
 type Props = {
@@ -16,7 +16,7 @@ const ProductList = ({products, filterTerm}: Props): JSX.Element => {
   return (
     <>
       <h2>Hot Trending Products</h2>
-      <Col>
+      <Row md={2} sm={3} lg={4}>
         {filteredItems.length 
           ? filteredItems.map((item) => {
             return (
@@ -25,7 +25,7 @@ const ProductList = ({products, filterTerm}: Props): JSX.Element => {
           })
           : <Alert error>No results for {filterTerm}</Alert>
         }
-      </Col>
+      </Row>
     </>
   );
 }

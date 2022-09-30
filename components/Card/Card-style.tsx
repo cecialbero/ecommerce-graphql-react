@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 type Props = {
-    imgUrl: string
+    imgUrl: string;
 }
 
 export const CardProduct = styled.article`
@@ -29,7 +29,7 @@ export const CardMedia = styled.div<Props>`
     max-width: 100%;
     background: url(${props => props.imgUrl}) no-repeat center center;
     background-size: cover;
-    height: 330px;
+    height: 300px;
     width: 100%;
 `
 
