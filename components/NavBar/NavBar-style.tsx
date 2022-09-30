@@ -7,11 +7,14 @@ export const Header = styled.header`
     z-index: 3;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     background-color: var(--secondary-color);
     padding: 0px 20px 3px;
+    height: 120px;
 
-    @media (min-width: 567px) {
+    @media(min-width: 767px) {
+        height: inherit;
+        align-items: center;
         padding: 2px 40px 5px;
     }
 `
@@ -30,9 +33,14 @@ export const HeaderOrder = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-top: 15px;
 
     @media (min-width: 567px) {
         flex-direction: row;
+    }
+
+    @media (min-width: 767px) {
+        margin-top: 0;
     }
 
     p {
