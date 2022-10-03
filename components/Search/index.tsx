@@ -10,7 +10,7 @@ type SearchProps = {
 const Search = ({onSearch}: SearchProps) => {
     const [searchTerm, setSearchTerm] = useState<string>('');
     const handleOnChange = ({target}: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchTerm(target.value);
+        setSearchTerm(target.value.toLowerCase());
     }
 
     const handleOnSearch = (e: any) => {

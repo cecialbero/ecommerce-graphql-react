@@ -11,7 +11,7 @@ type Props = {
 const ProductList = ({products, filterTerm}: Props): JSX.Element => {
   const {items} = products;
   
-  const filteredItems = items.filter(item => item.name.includes(filterTerm));
+  const filteredItems = items.filter(item => item.name.toLowerCase().includes(filterTerm));
 
   return (
     <>
