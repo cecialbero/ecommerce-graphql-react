@@ -7,12 +7,14 @@ export default function useStateWithStorage(
   const [value, setValue] = useState();
 
   useEffect(() => {
-    localStorage.setItem(key, JSON.stringify(value));
+    if(typeof window !== 'undefined') {
+      localStorage.setItem(key, JSON.stringify(value));
 
-    setValue(() => {
-      const saved: any = localStorage.getItem(key);
-      return saved || defaultValue;
-    })
+      setValue(() => {
+        const saved: any = localStorage.getItem(key);
+        return saved || defaultValue;
+      })
+    }
   }, [key, value]);
 
   return [value, setValue];
