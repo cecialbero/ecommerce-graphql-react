@@ -23,6 +23,7 @@ export const ACTIVE_ORDER = gql`
     query {
         activeOrder {
             subTotal
+            totalQuantity
         }
     }
 `

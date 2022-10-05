@@ -16,8 +16,8 @@ type NavBarProps = {
 
 const NavBar = ({ onSearch }: NavBarProps) => {
   const [order, setOrder] = useState('0');
-  const [itemNumber, setItemNumber] = useState(0);
-  const {loading, error, data} = useQuery(ACTIVE_ORDER);
+  const [quantity, setQuantity] = useState(0);
+  const {error, data} = useQuery(ACTIVE_ORDER);
 
   const getSearchTerm = (term: string) => {
     onSearch(term)
@@ -27,6 +27,7 @@ const NavBar = ({ onSearch }: NavBarProps) => {
     if(data) {
       const price = useCurrencyFormat(data?.activeOrder?.subTotal);
       setOrder(price);
+      setQuantity(data.activeOrder.totalQuantity);
     }
   }, [data, setOrder])
 
@@ -52,9 +53,9 @@ const NavBar = ({ onSearch }: NavBarProps) => {
             width={27}
             height={27}
           />
-          <Circle>{ itemNumber }</Circle>
+          <Circle>{ quantity }</Circle>
         </Cart>
-        <p>{ order || 0.00 }</p>
+        <p>{ order }</p>
       </HeaderOrder>
       {error && <Alert error>Ups, looks like there is an error</Alert>}
     </Header>
