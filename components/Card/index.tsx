@@ -15,30 +15,14 @@ const Card = ({item}: Props): JSX.Element => {
   const { name, variants, assets } = item;
   const price = useDecimal(variants[0].price, 2);
   
-  /*const [ addToOrder ] = useMutation(ADD_ITEM_TO_ORDER, {
-    refetchQueries: [ { query: ACTIVE_ORDER } ]
-  })*/
-
   const [ addToOrder ] = useMutation(ADD_ITEM_TO_ORDER, {
-    update: (cache, mutationResult) => {
-      const data = cache.readQuery({
-        query: ACTIVE_ORDER,
-      });
-      cache.writeQuery({
-        query: ACTIVE_ORDER,
-        data: {
-          activeOrder: mutationResult.data.addItemToOrder,
-        },
-      });
-    },
-  });
+    refetchQueries: [ { query: ACTIVE_ORDER } ]
+  })
 
-  const handleOnClick = async () => {
-    const productVariantId = variants[0].id
-    const quantity = 1
-    const {data} = await addToOrder({ variables: {productVariantId, quantity} })
-
-    console.log(data)
+  const handleOnClick = () => {
+    const productVariantId = variants[0].id;
+    const quantity = 1;
+    addToOrder({ variables: {productVariantId, quantity} });
   }
 
 
