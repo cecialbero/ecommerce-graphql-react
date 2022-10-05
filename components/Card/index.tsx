@@ -14,7 +14,6 @@ interface Props {
 const Card = ({item}: Props): JSX.Element => {
   const { name, variants, assets } = item;
   const price = useCurrencyFormat(variants[0].price);
-  console.log(price, variants[0].price)
   
   const [ addToOrder ] = useMutation(ADD_ITEM_TO_ORDER, {
     refetchQueries: [ { query: ACTIVE_ORDER } ]
