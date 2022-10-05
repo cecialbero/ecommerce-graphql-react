@@ -2,7 +2,7 @@ import { useMutation } from '@apollo/client';
 import { Items } from '../../model';
 import { ADD_ITEM_TO_ORDER } from '../../graphql/mutations';
 import { ACTIVE_ORDER } from '../../graphql/queries';
-import useDecimal from '../../hooks/useDecimal';
+import useCurrencyFormat from '../../hooks/useCurrencyFormat';
 
 import { Button } from '../../styles/Button';
 import { CardProduct, CardBottom, CardMedia, CardTitle, CardPrice  } from './Card-style';
@@ -13,7 +13,8 @@ interface Props {
 
 const Card = ({item}: Props): JSX.Element => {
   const { name, variants, assets } = item;
-  const price = useDecimal(variants[0].price, 2);
+  const price = useCurrencyFormat(variants[0].price);
+  console.log(price, variants[0].price)
   
   const [ addToOrder ] = useMutation(ADD_ITEM_TO_ORDER, {
     refetchQueries: [ { query: ACTIVE_ORDER } ]
@@ -32,7 +33,7 @@ const Card = ({item}: Props): JSX.Element => {
       <CardTitle>{name}</CardTitle>
 
       <CardBottom>
-        <CardPrice>${price}</CardPrice>
+        <CardPrice>{price}</CardPrice>
         <Button onClick={handleOnClick}>Buy</Button>
       </CardBottom>
     </CardProduct>

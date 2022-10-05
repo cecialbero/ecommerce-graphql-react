@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useQuery } from '@apollo/client';
 
 import { ACTIVE_ORDER } from '../../graphql/queries';
-import useDecimal from '../../hooks/useDecimal';
+import useCurrencyFormat from '../../hooks/useCurrencyFormat';
 
 import { Search } from '../index';
 import { Alert } from '../../styles/Alert';
@@ -15,7 +15,7 @@ type NavBarProps = {
 }
 
 const NavBar = ({ onSearch }: NavBarProps) => {
-  const [order, setOrder] = useState('0.00');
+  const [order, setOrder] = useState('0');
   const [itemNumber, setItemNumber] = useState(0);
   const {loading, error, data} = useQuery(ACTIVE_ORDER);
 
@@ -25,7 +25,7 @@ const NavBar = ({ onSearch }: NavBarProps) => {
 
   useEffect(() => {
     if(data) {
-      const price = useDecimal(data?.activeOrder?.subTotal);
+      const price = useCurrencyFormat(data?.activeOrder?.subTotal);
       setOrder(price);
     }
   }, [data, setOrder])
@@ -54,7 +54,7 @@ const NavBar = ({ onSearch }: NavBarProps) => {
           />
           <Circle>{ itemNumber }</Circle>
         </Cart>
-        <p>${ order || 0.00 }</p>
+        <p>{ order || 0.00 }</p>
       </HeaderOrder>
       {error && <Alert error>Ups, looks like there is an error</Alert>}
     </Header>
