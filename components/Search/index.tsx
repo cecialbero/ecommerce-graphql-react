@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { Input } from '../../styles/Form';
-import { SearchWrapper, SearchButton } from './Search-style';
+import { SearchButton, SearchContainer, SearchWrapper } from './Search-style';
 
 type SearchProps = {
     onSearch: any
@@ -20,19 +20,21 @@ const Search = ({onSearch}: SearchProps) => {
     }
 
     return (
-        <SearchWrapper>
-            <Input
-                type='search'
-                placeholder='Search'
-                onChange={handleOnChange}
-                onKeyDown={handleOnSearch}
-            />
-            <SearchButton onClick={handleOnSearch}>
-                <span className="material-symbols-outlined">
-                    search
-                </span>
-            </SearchButton>
-        </SearchWrapper>
+        <SearchContainer>
+            <SearchWrapper>
+                <Input
+                    type='search'
+                    placeholder='Search'
+                    onChange={handleOnChange}
+                    onKeyDown={handleOnSearch}
+                />
+                <SearchButton onClick={handleOnSearch}>
+                    <span className="material-symbols-outlined">
+                        search
+                    </span>
+                </SearchButton>
+            </SearchWrapper>
+        </SearchContainer>
     )
 }
 
