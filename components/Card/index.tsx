@@ -1,5 +1,5 @@
 import { useMutation } from '@apollo/client';
-import { Items } from '../../model';
+import { Product } from '../../model';
 import { ADD_ITEM_TO_ORDER } from '../../graphql/mutations';
 import { ACTIVE_ORDER } from '../../graphql/queries';
 import useCurrencyFormat from '../../hooks/useCurrencyFormat';
@@ -8,11 +8,11 @@ import { Button } from '../../styles/Button';
 import { CardProduct, CardBottom, CardMedia, CardTitle, CardPrice  } from './Card-style';
 
 interface Props {
-  item: Items
+  product: Product
 }
 
-const Card = ({item}: Props): JSX.Element => {
-  const { name, variants, assets } = item;
+const Card = ({product}: Props): JSX.Element => {
+  const { name, variants, assets } = product;
   const price = useCurrencyFormat(variants[0].price);
   
   const [ addToOrder ] = useMutation(ADD_ITEM_TO_ORDER, {
