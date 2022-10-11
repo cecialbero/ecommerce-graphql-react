@@ -1,5 +1,11 @@
-const ProductDetails = () => {
-    // shipping?
+import { Product } from '../../model';
+
+type Props = {
+    product: Product
+}
+
+const ProductDetails = ({ product }: Props) => {
+
     return (
         <section>
             <h2>Product Title</h2>

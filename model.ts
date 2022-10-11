@@ -1,20 +1,27 @@
 export interface Variants {
-    price: number,
-    id: string
+    id: string;
+    price: number;
+    priceWithTax?: number;
+    currencyCode?: string;
 }
 
 export interface Assets {
-    source: string
+    source: string;
+}
+
+export interface Collections {
+    name: string;
 }
   
-export interface Items {
-    id: string,
-    description: string,
-    name: string,
-    variants: Variants[],
-    assets: Assets[]
+export interface Product {
+    id: string;
+    description: string;
+    name: string;
+    variants: Variants[];
+    assets: Assets[];
+    collections?: Collections;
 }
   
 export interface Products {
-    items: Items[]
+    items: Product[];
 }

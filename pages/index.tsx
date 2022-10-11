@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client';
 
 import { PRODUCTS } from '../graphql/queries';
 
-import { NavBar, ProductList } from '../components';
+import { NavBar, ProductsList } from '../components';
 
 import { Container } from '../styles/Grid';
 import { Loading } from '../styles/Loading';
@@ -28,7 +28,7 @@ const Home: NextPage = () => {
       <Container>
         {loading
           ? <Loading>Loading data...</Loading>
-          : <ProductList {...data} filterTerm={filteredProducts}></ProductList>
+          : <ProductsList {...data} filterTerm={filteredProducts}></ProductsList>
         }
       </Container>
     </>
