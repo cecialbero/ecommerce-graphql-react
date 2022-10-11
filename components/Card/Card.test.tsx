@@ -1,9 +1,9 @@
 import { screen, render } from '@testing-library/react';
 import { MockedProvider } from '@apollo/client/testing';
 import { Card } from '../';
-import { Items } from '../../model';
+import { Product } from '../../model';
 
-const item: Items = {
+const product: Product = {
     id: '3',
     description: 'This is a description',
     name: 'Laptop',
@@ -20,7 +20,7 @@ beforeEach(() => {
     return (
         render(
             <MockedProvider mocks={[]} addTypename={false}>
-                <Card item={item} key={item.id}></Card>
+                <Card product={product} key={product.id}></Card>
             </MockedProvider>
         )
     )

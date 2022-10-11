@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import type { NextPage } from 'next';
 import { useQuery } from '@apollo/client';
+
 import { PRODUCTS } from '../graphql/queries';
-import { NavBar, ProductList } from '../components';
+
+import { NavBar, ProductsList } from '../components';
+
 import { Container } from '../styles/Grid';
 import { Loading } from '../styles/Loading';
 import { Alert } from '../styles/Alert';
@@ -15,16 +18,17 @@ const Home: NextPage = () => {
     setFilteredProducts(filter)
   }
 
+  if(error) {
+    return <Alert error>Ups, looks like there is an error</Alert>
+  }
+
   return (
     <>
       <NavBar onSearch={filterProducts}/>
       <Container>
         {loading
           ? <Loading>Loading data...</Loading>
-          : <ProductList {...data} filterTerm={filteredProducts}></ProductList>
-        }
-        {
-          error && <Alert error>Ups, looks like there is an error</Alert>
+          : <ProductsList {...data} filterTerm={filteredProducts}></ProductsList>
         }
       </Container>
     </>
