@@ -1,14 +1,17 @@
-import type { AppProps } from 'next/app';
-import Head from 'next/head';
+import type { AppProps } from 'next/app'
+import Head from 'next/head'
 import {
   ApolloClient,
   ApolloLink,
   createHttpLink,
   InMemoryCache,
-} from '@apollo/client';
-import { ApolloProvider } from '@apollo/client/react';
+} from '@apollo/client'
+import { ApolloProvider } from '@apollo/client/react'
+import { Provider } from 'react-redux'
 
-import '../styles/global.css';
+import store from '../store'
+
+import '../styles/global.css'
 
 const commerceLink = createHttpLink({
   uri: 'http://localhost:3000/shop-api',
@@ -39,10 +42,12 @@ const client = new ApolloClient({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ApolloProvider client={client}>
+    <Provider store={store}>
       <Head>
           <title>Shop App</title>
       </Head>
       <Component {...pageProps} />
+    </Provider>
     </ApolloProvider>
   )
 }

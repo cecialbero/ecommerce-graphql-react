@@ -1,18 +1,21 @@
-import Link from 'next/link';
+import Link from 'next/link'
+import { useSelector } from 'react-redux'
 
-import { Card } from "..";
-import { Products } from '../../model';
+import { Card } from ".."
+import { Products } from '../../model'
 
-import { Row } from '../../styles/Grid';
-import { Alert } from '../../styles/Alert';
+import { Row } from '../../styles/Grid'
+import { Alert } from '../../styles/Alert'
 
 type Props = {
   products: Products;
-  filterTerm: string;
 }
 
-const ProductsList = ({products, filterTerm}: Props): JSX.Element => {
+const ProductsList = ({products}: Props): JSX.Element => {
   const {items} = products;
+  const filterTerm = useSelector(((state: any) => state.filter.term));
+
+  console.log(filterTerm)
   
   const filteredItems = items.filter(product => product.name.toLowerCase().includes(filterTerm));
 
@@ -20,7 +23,7 @@ const ProductsList = ({products, filterTerm}: Props): JSX.Element => {
     <>
       <h2>Hot Trending Products</h2>
       <Row md={2} sm={3} lg={4}>
-        {filteredItems.length 
+        {filteredItems.length
           ? filteredItems.map((product) => {
             return (
               <Link href={{
