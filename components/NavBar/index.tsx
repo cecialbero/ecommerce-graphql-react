@@ -1,27 +1,19 @@
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
-import { useQuery } from '@apollo/client';
+import { useEffect, useState } from 'react'
+import Image from 'next/image'
+import { useQuery } from '@apollo/client'
 
-import { ACTIVE_ORDER } from '../../graphql/queries';
-import useCurrencyFormat from '../../hooks/useCurrencyFormat';
+import { ACTIVE_ORDER } from '../../graphql/queries'
+import useCurrencyFormat from '../../hooks/useCurrencyFormat'
 
-import { Search } from '../index';
-import { Alert } from '../../styles/Alert';
-import { Header, HeaderLogo, HeaderOrder, Cart, Circle } from './NavBar-style';
+import { Search } from '../index'
+import { Alert } from '../../styles/Alert'
+import { Header, HeaderLogo, HeaderOrder, Cart, Circle } from './NavBar-style'
 // import useStateWithStorage from '../../hooks/useStateWithStorage';
 
-type NavBarProps = {
-  onSearch: Function
-}
-
-const NavBar = ({ onSearch }: NavBarProps) => {
+const NavBar = () => {
   const [order, setOrder] = useState('0');
   const [quantity, setQuantity] = useState(0);
   const {error, data} = useQuery(ACTIVE_ORDER);
-
-  const getSearchTerm = (term: string) => {
-    onSearch(term)
-  }
 
   useEffect(() => {
     if(data) {
@@ -43,7 +35,7 @@ const NavBar = ({ onSearch }: NavBarProps) => {
         <h1>ShopApp</h1>
       </HeaderLogo>
 
-      <Search onSearch={getSearchTerm}/>
+      <Search />
       
       <HeaderOrder>
         <Cart>

@@ -1,19 +1,19 @@
-export interface Variants {
+export type Variants = {
     id: string;
     price: number;
     priceWithTax?: number;
     currencyCode?: string;
 }
 
-export interface Assets {
+export type Assets = {
     source: string;
 }
 
-export interface Collections {
+export type Collections = {
     name: string;
 }
   
-export interface Product {
+export type Product = {
     id: string;
     description: string;
     name: string;
@@ -22,6 +22,14 @@ export interface Product {
     collections?: Collections;
 }
   
-export interface Products {
+export type Products = {
     items: Product[];
+}
+
+export type filterSliceType = {
+    filter: filterType
+}
+
+export type filterType = {
+    term: string
 }
