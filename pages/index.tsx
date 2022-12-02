@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client'
 
 import { PRODUCTS } from '../graphql/queries'
 
-import { NavBar, ProductsList } from '../components'
+import { ProductsList } from '../components'
 
 import { Container } from '../styles/Grid'
 import { Loading } from '../styles/Loading'
@@ -18,7 +18,6 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <NavBar />
       <Container>
         {loading
           ? <Loading>Loading data...</Loading>

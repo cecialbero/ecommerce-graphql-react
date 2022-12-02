@@ -9,6 +9,7 @@ import {
 import { ApolloProvider } from '@apollo/client/react'
 import { Provider } from 'react-redux'
 
+import { Layout } from '../components'
 import store from '../store'
 
 import '../styles/global.css'
@@ -46,7 +47,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
           <title>Shop App</title>
       </Head>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </Provider>
     </ApolloProvider>
   )
