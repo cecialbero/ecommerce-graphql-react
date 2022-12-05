@@ -13,18 +13,16 @@ const Home: NextPage = () => {
   const { loading, error, data } = useQuery(PRODUCTS);
 
   if(error) {
-    return <Alert error>Ups, looks like there is an error</Alert>
+    return <Alert error>Ups, looks like there is an error. Please, try again later</Alert>
   }
 
   return (
-    <>
-      <Container>
-        {loading
-          ? <Loading>Loading data...</Loading>
-          : <ProductsList {...data}></ProductsList>
-        }
-      </Container>
-    </>
+    <Container>
+      {loading
+        ? <Loading>Loading data...</Loading>
+        : <ProductsList {...data}></ProductsList>
+      }
+    </Container>
   )
 }
 
