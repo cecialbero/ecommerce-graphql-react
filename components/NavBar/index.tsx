@@ -6,7 +6,6 @@ import { ACTIVE_ORDER } from '../../graphql/queries'
 import useCurrencyFormat from '../../hooks/useCurrencyFormat'
 
 import { Search } from '../index'
-import { Alert } from '../../styles/Alert'
 import { Header, HeaderLogo, HeaderOrder, Cart, Circle } from './NavBar-style'
 // import useStateWithStorage from '../../hooks/useStateWithStorage';
 
@@ -45,11 +44,11 @@ const NavBar = () => {
             width={27}
             height={27}
           />
-          <Circle>{ quantity }</Circle>
+          <Circle>{ quantity | 0 }</Circle>
         </Cart>
-        <p>{ order }</p>
+        {data && <p>{ order }</p>}
+        {error && <p>$0</p>}
       </HeaderOrder>
-      {error && <Alert error>Ups, looks like there is an error</Alert>}
     </Header>
   );
 }
