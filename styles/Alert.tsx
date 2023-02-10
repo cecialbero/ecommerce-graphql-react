@@ -1,15 +1,12 @@
 import styled, {css} from 'styled-components';
 
 type Props = {
-    error: boolean
+    error?: boolean,
+    info?: boolean
 }
 
 export const Alert = styled.div<Props>`
-    position: absolute;
-    top: 70px;
-    left: 50%;
-    transform: transladeX(-50%);
-    padding: 30px;
+    padding: 18px 30px;
     font-size: 20px;
     font-weight: 700;
     border-radius: 5px;
@@ -18,5 +15,10 @@ export const Alert = styled.div<Props>`
         background: var(--bg-error);
         color: var(--red-light);
         border: 2px solid var(--red-light);
+    `};
+
+    ${props => props.info && css`
+        background: var(--bg-info);
+        border: 2px solid var(--secondary-color-light);
     `};
 `
