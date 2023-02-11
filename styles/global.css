@@ -5,6 +5,7 @@
   --tertiary-color: #eb423f;
   --bg-light: #f1f4f9;
   --bg-error: #f9dbd8;
+  --bg-info: #bdf2fc;
   --red-light: #f44336;
   --text-color: #212529;
   --text-color-invert: #fff;
@@ -59,4 +60,8 @@ h3 {
 /* Card price */
 h4 {
   font-size: 16px;
+}
+
+main {
+  padding: 100px 15px 0;
 }
