@@ -6,21 +6,17 @@ import { useQuery } from '@apollo/client'
 import { PRODUCTS } from '../../graphql/queries'
 
 import { Card } from ".."
-import { Products, product } from '../../model'
+import { Product } from '../../model'
 
 import { Row } from '../../styles/Grid'
 import { Alert } from '../../styles/Alert'
 import { Loading } from '../../styles/Loading'
 
-type Props = {
-  products: Products;
-}
-
 const ProductsList = (): JSX.Element => {
   const { loading, error, data } = useQuery(PRODUCTS);
   const products = useMemo(() => data?.products?.items ?? [], [data]);
   const filterTerm = useSelector(((state: any) => state.filter.term));
-  const filteredItems = products.filter((product: product) => product.name.toLowerCase().includes(filterTerm));
+  const filteredItems = products.filter((product: Product) => product.name.toLowerCase().includes(filterTerm));
 
   if(error) {
     return <Alert error>Ups, looks like there is an error. Please, try again later</Alert>
@@ -34,7 +30,7 @@ const ProductsList = (): JSX.Element => {
           <h2>Hot Trending Products</h2>
           <Row md={2} sm={3} lg={4}>
             {filteredItems.length
-              ? filteredItems.map((product: product) => {
+              ? filteredItems.map((product: Product) => {
                 return (
                   <Link href={{
                       pathname: '/product/[id]',
