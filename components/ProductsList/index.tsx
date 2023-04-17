@@ -1,16 +1,15 @@
-import { useMemo } from 'react'
-import Link from 'next/link'
-import { useSelector } from 'react-redux'
-import { useQuery } from '@apollo/client'
+import { useMemo } from 'react';
+import { useSelector } from 'react-redux';
+import { useQuery } from '@apollo/client';
 
-import { PRODUCTS } from '../../graphql/queries'
+import { PRODUCTS } from '../../graphql/queries';
 
-import { Card } from ".."
-import { Product } from '../../model'
+import { Card } from "..";
+import { Product } from '../../model';
 
-import { Row } from '../../styles/Grid'
-import { Alert } from '../../styles/Alert'
-import { Loading } from '../../styles/Loading'
+import { Row } from '../../styles/Grid';
+import { Alert } from '../../styles/Alert';
+import { Loading } from '../../styles/Loading';
 
 const ProductsList = (): JSX.Element => {
   const { loading, error, data } = useQuery(PRODUCTS);
@@ -28,20 +27,11 @@ const ProductsList = (): JSX.Element => {
       ? <Loading>Loading...</Loading>
       : <>
           <h2>Hot Trending Products</h2>
-          <Row md={2} sm={3} lg={4}>
+          <Row sm={2} md={3} lg={4}>
             {filteredItems.length
               ? filteredItems.map((product: Product) => {
                 return (
-                  <Link href={{
-                      pathname: '/product/[id]',
-                      query: { id: product.id },
-                    }} 
-                    key={product.id}
-                  >
-                    <a>
-                      <Card product={product}></Card>
-                    </a>
-                  </Link>
+                  <Card product={product}></Card>
                 )
               })
               : <Alert error>No results for {filterTerm}</Alert>
