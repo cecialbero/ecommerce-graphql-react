@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
-type Props = {
-    imgUrl: string;
-}
+import { Button } from '../../styles/Button';
 
 export const CardProduct = styled.article`
     position: relative;
@@ -18,29 +16,26 @@ export const CardProduct = styled.article`
     }
 `
 
-export const CardTitle = styled.h3`
-    color: var(--secondary-color-light);
-    padding: 0 15px;
-`
-
-export const CardPrice = styled.h4``
-
-export const CardMedia = styled.div<Props>`
-    max-width: 100%;
-    background: url(${props => props.imgUrl}) no-repeat center center;
-    background-size: cover;
-    height: 300px;
-    width: 100%;
-`
-
 export const CardBottom = styled.div`
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
     width: 100%;
     box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 15px;
+    padding: 15px;
+`
+
+export const CardTitle = styled.h3`
+    color: var(--secondary-color-light);
+`
+
+export const CardPrice = styled.h4`
+    margin: 0;
+    color: var(--text-color);
+`
+
+export const CardButton = styled(Button)`
+    position: absolute;
+    right: 10px;
+    bottom: 15px;
 `

@@ -1,11 +1,13 @@
+import Link from 'next/link';
 import { useMutation } from '@apollo/client';
+
 import { Product } from '../../model';
 import { ADD_ITEM_TO_ORDER } from '../../graphql/mutations';
 import { ACTIVE_ORDER } from '../../graphql/queries';
 import useCurrencyFormat from '../../hooks/useCurrencyFormat';
+import { BgImage } from '../../styles/BgImage';
 
-import { Button } from '../../styles/Button';
-import { CardProduct, CardBottom, CardMedia, CardTitle, CardPrice  } from './Card-style';
+import { CardButton, CardProduct, CardBottom, CardTitle, CardPrice  } from './Card-style';
 
 interface Props {
   product: Product
@@ -28,13 +30,22 @@ const Card = ({product}: Props): JSX.Element => {
 
   return (
     <CardProduct>
-      <CardMedia imgUrl={assets[0].source}></CardMedia>
-      <CardTitle>{name}</CardTitle>
+      <Link href={{
+          pathname: '/product/[id]',
+          query: { id: product.id },
+        }} 
+        key={product.id}
+      >
+        <a>
+          <BgImage imgUrl={assets[0].source} imgHeight="300px"/>
 
-      <CardBottom>
-        <CardPrice>{price}</CardPrice>
-        <Button onClick={handleOnClick}>Buy</Button>
-      </CardBottom>
+          <CardBottom>
+            <CardTitle>{name}</CardTitle>
+            <CardPrice>{price}</CardPrice>
+          </CardBottom>
+        </a>
+      </Link>
+      <CardButton onClick={handleOnClick}>Buy</CardButton>
     </CardProduct>
   )
 }

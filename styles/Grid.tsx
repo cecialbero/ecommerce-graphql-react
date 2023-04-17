@@ -21,12 +21,12 @@ export const Row = styled.div<Props>`
 
     ${({lg, md, sm}) => css`
         @media(min-width: 567px) {
-            grid-template-columns: repeat(${md}, 1fr);
+            grid-template-columns: repeat(${sm}, 1fr);
             grid-gap: 20px;
         }
 
         @media(min-width: 767px) {
-            grid-template-columns: repeat(${sm}, 1fr);
+            grid-template-columns: repeat(${md}, 1fr);
             grid-gap: 30px;
         }
 
