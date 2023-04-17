@@ -5,7 +5,7 @@ import { useQuery } from '@apollo/client';
 import { PRODUCT } from '../../graphql/queries';
 import { Carousel, ProductDetails } from '../../components';
 
-import { Container } from '../../styles/Grid';
+import { Container, Row } from '../../styles/Grid';
 import { Alert } from '../../styles/Alert';
 import { Loading } from '../../styles/Loading';
 
@@ -27,8 +27,10 @@ const Product: NextPage = () => {
     
     return (
         <Container>
-            <Carousel/>
-            <ProductDetails {...data}/>
+            <Row sm={2}>
+                <Carousel spaceBetween={0} sliderPerView={1} images={data.product.assets} name={data.product.name}/>
+                <ProductDetails {...data}/>
+            </Row>
         </Container>
     )
 }
