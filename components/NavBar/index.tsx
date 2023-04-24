@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react'
-import Image from 'next/image'
-import { useQuery } from '@apollo/client'
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useQuery } from '@apollo/client';
 
-import { ACTIVE_ORDER } from '../../graphql/queries'
-import useCurrencyFormat from '../../hooks/useCurrencyFormat'
+import { ACTIVE_ORDER } from '../../graphql/queries';
+import useCurrencyFormat from '../../hooks/useCurrencyFormat';
 
-import { Search } from '../index'
-import { Header, HeaderLogo, HeaderOrder, Cart, Circle } from './NavBar-style'
+import { Search } from '../index';
+import { Header, HeaderLogo, HeaderOrder, Cart, Circle } from './NavBar-style';
 // import useStateWithStorage from '../../hooks/useStateWithStorage';
 
 const NavBar = () => {
@@ -24,16 +25,17 @@ const NavBar = () => {
 
   return (
     <Header>
-      <HeaderLogo>
-        <Image
-          src='/img/e-commerce.png'
-          alt='e-commerce'
-          width={50}
-          height={57}
-        />
-        <h1>ShopApp</h1>
-      </HeaderLogo>
-
+      <Link href="/">
+        <HeaderLogo>
+          <Image
+            src='/img/e-commerce.png'
+            alt='e-commerce'
+            width={50}
+            height={57}
+          />
+          <h1>ShopApp</h1>
+        </HeaderLogo>
+      </Link>
       <Search />
       
       <HeaderOrder>
