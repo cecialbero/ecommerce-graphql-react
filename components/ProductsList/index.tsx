@@ -31,7 +31,7 @@ const ProductsList = (): JSX.Element => {
             {filteredItems.length
               ? filteredItems.map((product: Product) => {
                 return (
-                  <Card product={product}></Card>
+                  <Card product={product} />
                 )
               })
               : <Alert error>No results for {filterTerm}</Alert>
