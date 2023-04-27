@@ -8,7 +8,6 @@ import useCurrencyFormat from '../../hooks/useCurrencyFormat';
 
 import { Search } from '../index';
 import { Header, HeaderLogo, HeaderOrder, Cart, Circle } from './NavBar-style';
-// import useStateWithStorage from '../../hooks/useStateWithStorage';
 
 const NavBar = () => {
   const [order, setOrder] = useState('0');
@@ -19,7 +18,7 @@ const NavBar = () => {
     if(data) {
       const price = useCurrencyFormat(data?.activeOrder?.subTotal);
       setOrder(price);
-      setQuantity(data.activeOrder.totalQuantity);
+      setQuantity(data?.activeOrder?.totalQuantity || 0);
     }
   }, [data, setOrder])
 
