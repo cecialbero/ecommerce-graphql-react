@@ -13,8 +13,8 @@ const Search = () => {
         setSearchTerm(target.value.toLowerCase());
     }
 
-    const handleOnSearch = (e: any) => {
-        if (e.keyCode === 13 || e.type === 'click') {
+    const handleOnSearch = ({key, type}: any) => {
+        if (key === 'Enter' || type === 'click') {
             dispatch(filterActions.getFilterTerm(searchTerm));
         }
     }

@@ -5,7 +5,7 @@ import { useQuery } from '@apollo/client';
 import { PRODUCTS } from '../../graphql/queries';
 
 import { Card } from "..";
-import { Product } from '../../model';
+import { Product, filterSliceType } from '../../model';
 
 import { Row } from '../../styles/Grid';
 import { Alert } from '../../styles/Alert';
@@ -14,7 +14,7 @@ import { Loading } from '../../styles/Loading';
 const ProductsList = (): JSX.Element => {
   const { loading, error, data } = useQuery(PRODUCTS);
   const products = useMemo(() => data?.products?.items ?? [], [data]);
-  const filterTerm = useSelector(((state: any) => state.filter.term));
+  const filterTerm = useSelector(((state: filterSliceType) => state.filter.term));
   const filteredItems = products.filter((product: Product) => product.name.toLowerCase().includes(filterTerm));
 
   if(error) {
