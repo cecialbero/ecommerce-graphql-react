@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useMemo, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useQuery } from '@apollo/client';
@@ -10,17 +10,10 @@ import { Search } from '../index';
 import { Header, HeaderLogo, HeaderOrder, Cart, Circle } from './NavBar-style';
 
 const NavBar = () => {
-  const [order, setOrder] = useState('0');
-  const [quantity, setQuantity] = useState(0);
   const {error, data} = useQuery(ACTIVE_ORDER);
-
-  useEffect(() => {
-    if(data) {
-      const price = useCurrencyFormat(data?.activeOrder?.subTotal);
-      setOrder(price);
-      setQuantity(data?.activeOrder?.totalQuantity || 0);
-    }
-  }, [data, setOrder])
+  
+  const order = useMemo(() => useCurrencyFormat(data?.activeOrder?.subTotal || '0'), [data]);
+  const quantity = useMemo(() => data?.activeOrder?.totalQuantity || 0, [data]);
 
   return (
     <Header>
